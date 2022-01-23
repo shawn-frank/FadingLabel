@@ -51,16 +51,16 @@ class FadingLabel: UILabel
         // Reset the numberOfLines to 1
         numberOfLines = 1
         
-        // Check if the label's text goes beyond it's width
-        if intrinsicContentSize.width > bounds.width
+        // Check if the label's has it's width set and if the text goes beyond it's width
+        if bounds.width > CGFloat.zero && intrinsicContentSize.width > bounds.width
         {
             // Initialize and configure a gradient to start at the end of
             // the label
             let gradient = CAGradientLayer()
             gradient.frame = bounds
             gradient.colors = [UIColor.white.cgColor, UIColor.clear.cgColor]
-            gradient.startPoint = CGPoint(x: 0.8, y: 0.5)
-            gradient.endPoint = CGPoint(x: 0.95, y: 0.5)
+            gradient.startPoint = CGPoint(x: 0.75, y: 0.5)
+            gradient.endPoint = CGPoint(x: 0.99, y: 0.5)
             
             // Apply the gradient as a mask to the UILabel
             layer.mask = gradient
